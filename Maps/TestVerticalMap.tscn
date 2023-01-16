@@ -1,0 +1,92 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Connections/TestVertical_Garage_0.tres" type="Resource" id=1]
+[ext_resource path="res://Maps/Door.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Maps/Map.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Enemies/Guard.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Tiles/Gemstone/GemstoneTiles.tscn" type="PackedScene" id=5]
+[ext_resource path="res://World/VerticalPath.tres" type="Curve2D" id=6]
+[ext_resource path="res://World/MovingPlatform.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Enemies/Spike.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Enemies/Drone.tscn" type="PackedScene" id=9]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Loop"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Path2D/PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Path2D/PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[node name="TestVerticalMap" instance=ExtResource( 3 )]
+
+[node name="TopLeft" parent="." index="0"]
+position = Vector2( -255, -80 )
+
+[node name="BottomRight" parent="." index="1"]
+position = Vector2( 240, 208 )
+
+[node name="Door" parent="." index="2" instance=ExtResource( 2 )]
+position = Vector2( 232, 160 )
+connection = ExtResource( 1 )
+new_map_path = "res://Maps/Garage/Garage.tscn"
+
+[node name="GemstoneTiles" parent="." index="3" instance=ExtResource( 5 )]
+tile_data = PoolIntArray( -262149, 0, 0, -262148, 0, 1, -262147, 0, 1, -262146, 0, 1, -262145, 0, 1, -327680, 0, 1, -327679, 0, 1, -327678, 0, 1, -327677, 0, 1, -327676, 0, 1, -327675, 0, 1, -327674, 0, 1, -327673, 0, 1, -327672, 0, 1, -327671, 0, 1, -327670, 0, 2, -196618, 0, 0, -196617, 0, 1, -196616, 0, 1, -196615, 0, 1, -196614, 0, 5, -196613, 0, 196614, -196612, 0, 131073, -196611, 0, 131073, -196610, 0, 131073, -196609, 0, 131073, -262144, 0, 131073, -262143, 0, 131073, -262142, 0, 131073, -262141, 0, 131073, -262140, 0, 131073, -262139, 0, 131073, -262138, 0, 131073, -262137, 0, 65542, -262136, 0, 65537, -262135, 0, 65537, -262134, 0, 131077, -262133, 0, 1, -262132, 0, 1, -262131, 0, 2, -131083, 0, 4, -131082, 0, 196614, -131081, 0, 131073, -131080, 0, 131073, -131079, 0, 131073, -131078, 0, 131074, -196601, 0, 131072, -196600, 0, 131073, -196599, 0, 131073, -196598, 0, 131073, -196597, 0, 131073, -196596, 0, 65542, -196595, 0, 131077, -196594, 0, 2, -65549, 0, 0, -65548, 0, 5, -65547, 0, 196615, -131060, 0, 65536, -131059, 0, 65537, -131058, 0, 65538, -15, 0, 0, -14, 0, 1, -13, 0, 131078, -12, 0, 65538, -65524, 0, 65536, -65523, 0, 65537, -65522, 0, 65538, 65521, 0, 65536, 65522, 0, 65537, 65523, 0, 65537, 65524, 0, 65538, 12, 0, 65536, 13, 0, 65537, 14, 0, 65538, 131056, 0, 0, 131057, 0, 131078, 131058, 0, 65541, 131059, 0, 131073, 131060, 0, 131074, 131067, 0, 0, 131068, 0, 1, 131069, 0, 1, 131070, 0, 1, 131071, 0, 1, 65536, 0, 2, 65548, 0, 65536, 65549, 0, 65537, 65550, 0, 65538, 196592, 0, 65540, 196593, 0, 131073, 196594, 0, 131074, 196603, 0, 131072, 196604, 0, 131073, 196605, 0, 131073, 196606, 0, 131073, 196607, 0, 131073, 131072, 0, 131074, 131076, 0, 196608, 131077, 0, 196610, 131084, 0, 65536, 131085, 0, 65537, 131086, 0, 65538, 262127, 0, 0, 262128, 0, 131079, 196616, 0, 196608, 196617, 0, 196610, 196620, 0, 65536, 196621, 0, 65537, 196622, 0, 65538, 327663, 0, 131072, 327664, 0, 65543, 262156, 0, 65536, 262157, 0, 65537, 262158, 0, 65538, 393200, 0, 131076, 393201, 0, 2, 327692, 0, 65536, 327693, 0, 65537, 327694, 0, 65538, 458736, 0, 65536, 458737, 0, 65538, 393224, 0, 196608, 393225, 0, 196610, 393228, 0, 65536, 393229, 0, 65537, 393230, 0, 65538, 524272, 0, 65536, 524273, 0, 131077, 524274, 0, 1, 524275, 0, 1, 524276, 0, 2, 458764, 0, 65536, 458765, 0, 65537, 458766, 0, 65538, 589808, 0, 131072, 589809, 0, 65542, 589810, 0, 65537, 589811, 0, 65537, 589812, 0, 65538, 589818, 0, 196608, 589819, 0, 196609, 589820, 0, 196610, 524292, 0, 196608, 524293, 0, 196609, 524294, 0, 196610, 524300, 0, 131072, 524301, 0, 131073, 524302, 0, 131074, 655345, 0, 131072, 655346, 0, 65542, 655347, 0, 65537, 655348, 0, 65538, 655357, 0, 196608, 655358, 0, 196609, 655359, 0, 196610, 720882, 0, 65536, 720883, 0, 65537, 720884, 0, 131077, 720885, 0, 1, 720886, 0, 2, 786418, 0, 131072, 786419, 0, 65542, 786420, 0, 65537, 786421, 0, 65537, 786422, 0, 131077, 786423, 0, 1, 786424, 0, 1, 786425, 0, 1, 786426, 0, 1, 786427, 0, 1, 786428, 0, 1, 786429, 0, 1, 786430, 0, 1, 786431, 0, 1, 720896, 0, 1, 720897, 0, 1, 720898, 0, 1, 720899, 0, 1, 720900, 0, 1, 720901, 0, 1, 720902, 0, 1, 720903, 0, 1, 720904, 0, 1, 720905, 0, 1, 720906, 0, 1, 720907, 0, 1, 720908, 0, 1, 720909, 0, 1, 720910, 0, 2, 851955, 0, 131072, 851956, 0, 131073, 851957, 0, 131073, 851958, 0, 131073, 851959, 0, 131073, 851960, 0, 131073, 851961, 0, 131073, 851962, 0, 131073, 851963, 0, 131073, 851964, 0, 131073, 851965, 0, 131073, 851966, 0, 131073, 851967, 0, 131073, 786432, 0, 131073, 786433, 0, 131073, 786434, 0, 65542, 786435, 0, 65537, 786436, 0, 65537, 786437, 0, 65537, 786438, 0, 65537, 786439, 0, 65537, 786440, 0, 65537, 786441, 0, 65537, 786442, 0, 65537, 786443, 0, 65537, 786444, 0, 65537, 786445, 0, 65541, 786446, 0, 131074, 851970, 0, 131072, 851971, 0, 131073, 851972, 0, 131073, 851973, 0, 131073, 851974, 0, 131073, 851975, 0, 131073, 851976, 0, 131073, 851977, 0, 131073, 851978, 0, 131073, 851979, 0, 131073, 851980, 0, 131073, 851981, 0, 131074 )
+
+[node name="MovingPlatform" parent="." index="4" instance=ExtResource( 7 )]
+position = Vector2( -152, 136 )
+
+[node name="MovingPlatform2" parent="." index="5" instance=ExtResource( 7 )]
+position = Vector2( 33, 96 )
+
+[node name="KinematicBody2D" parent="MovingPlatform2" index="0"]
+position = Vector2( 0, -4.79974 )
+
+[node name="Path2D" parent="MovingPlatform2" index="1"]
+curve = ExtResource( 6 )
+
+[node name="PathFollow2D" parent="MovingPlatform2/Path2D" index="0"]
+position = Vector2( 0, -4.79975 )
+
+[node name="AnimationPlayer" parent="MovingPlatform2" index="2"]
+anims/Loop = SubResource( 1 )
+anims/RESET = SubResource( 2 )
+
+[node name="Spike" parent="." index="6" instance=ExtResource( 8 )]
+position = Vector2( -130, 176 )
+
+[node name="Drone" parent="." index="7" instance=ExtResource( 9 )]
+position = Vector2( -61, 96 )
+
+[node name="Guard" parent="." index="8" instance=ExtResource( 4 )]
+position = Vector2( 35, 176 )
+
+[node name="DefaultPlayerPosition" parent="." index="9"]
+position = Vector2( 208, 168 )
+
+[editable path="MovingPlatform2"]

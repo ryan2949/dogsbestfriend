@@ -1,0 +1,92 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Maps/Map.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Maps/Door.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Tiles/bricks/BrickTiles.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Connections/Scrapyard_LeftBranch_0.tres" type="Resource" id=4]
+[ext_resource path="res://Enemies/Drone.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Enemies/Spike.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Parts/HeadPart.tscn" type="PackedScene" id=7]
+[ext_resource path="res://World/MovingPlatform.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Enemies/Guard.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Music/xDeviruchi - Mysterious Dungeon.ogg" type="AudioStream" id=10]
+
+[node name="Scrapyard" instance=ExtResource( 1 )]
+
+[node name="TopLeft" parent="." index="0"]
+position = Vector2( -2400, -320 )
+
+[node name="BottomRight" parent="." index="1"]
+position = Vector2( 256, 192 )
+
+[node name="DefaultPlayerPosition" parent="." index="2"]
+position = Vector2( 200, 152 )
+
+[node name="BrickTiles" parent="." index="3" instance=ExtResource( 3 )]
+tile_data = PoolIntArray( -917627, 0, 196608, -917626, 0, 6, -917625, 0, 1, -917624, 0, 1, -917623, 0, 1, -917622, 0, 1, -917621, 0, 1, -917620, 0, 1, -917619, 0, 1, -917618, 0, 1, -917617, 0, 1, -917616, 0, 1, -917615, 0, 5, -917614, 0, 196609, -917613, 0, 196610, -917607, 0, 3, -852090, 0, 131072, -852089, 0, 131073, -852088, 0, 131073, -852087, 0, 131073, -852086, 0, 65542, -852085, 0, 65537, -852084, 0, 65537, -852083, 0, 65541, -852082, 0, 131073, -852081, 0, 131073, -852080, 0, 131073, -852079, 0, 131074, -852071, 0, 65539, -786550, 0, 131072, -786549, 0, 131073, -786548, 0, 131073, -786547, 0, 131074, -786535, 0, 131075, -720995, 0, 196608, -720994, 0, 196609, -720993, 0, 6, -720992, 0, 1, -720991, 0, 5, -720990, 0, 196610, -720979, 0, 196608, -720978, 0, 6, -720977, 0, 1, -720976, 0, 1, -720975, 0, 1, -720974, 0, 1, -720973, 0, 5, -720972, 0, 196609, -720971, 0, 196610, -720969, 0, 3, -655490, 0, 196611, -655457, 0, 131072, -655456, 0, 131073, -655455, 0, 131074, -655442, 0, 131072, -655441, 0, 65542, -655440, 0, 65537, -655439, 0, 65541, -655438, 0, 131073, -655437, 0, 131074, -655433, 0, 131076, -655432, 0, 2, -589905, 0, 131072, -589904, 0, 65542, -589903, 0, 65538, -589897, 0, 65536, -589896, 0, 262149, -589895, 0, 196610, -524368, 0, 65536, -524367, 0, 65538, -524363, 0, 196608, -524362, 0, 196609, -524361, 0, 196614, -524360, 0, 131074, -458832, 0, 131072, -458831, 0, 65543, -458829, 0, 196608, -458828, 0, 196610, -393295, 0, 65539, -393264, 0, 196608, -393263, 0, 196609, -393262, 0, 196609, -393261, 0, 196609, -393260, 0, 196609, -393259, 0, 7, -327759, 0, 131075, -327723, 0, 65539, -262291, 0, 0, -262290, 0, 2, -262282, 0, 196611, -262220, 0, 196611, -262204, 0, 3, -262187, 0, 65539, -196756, 0, 196608, -196755, 0, 196614, -196754, 0, 196613, -196753, 0, 196609, -196752, 0, 196610, -196668, 0, 65539, -196651, 0, 65539, -131221, 0, 3, -131215, 0, 3, -131132, 0, 196612, -131131, 0, 196609, -131130, 0, 196609, -131129, 0, 196609, -131128, 0, 196609, -131127, 0, 196610, -131121, 0, 4, -131120, 0, 196609, -131119, 0, 196609, -131118, 0, 196609, -131117, 0, 196610, -131115, 0, 65539, -65686, 0, 0, -65685, 0, 131079, -65683, 0, 196608, -65682, 0, 196609, -65681, 0, 6, -65680, 0, 5, -65679, 0, 196615, -65585, 0, 65539, -65579, 0, 65539, -65557, 0, 0, -65556, 0, 2, -150, 0, 65536, -149, 0, 65538, -145, 0, 131072, -144, 0, 131074, -49, 0, 131075, -43, 0, 65539, -22, 0, 196608, -21, 0, 196614, -20, 0, 196613, -19, 0, 7, 65386, 0, 131072, 65387, 0, 65543, 65489, 0, 3, 65493, 0, 65539, 65505, 0, 196611, 65517, 0, 131076, 65518, 0, 2, 14, 0, 0, 15, 0, 2, 130923, 0, 131075, 131025, 0, 65539, 131028, 0, 196608, 131029, 0, 196615, 131053, 0, 131072, 131054, 0, 65543, 65550, 0, 65536, 65551, 0, 65538, 196460, 0, 196608, 196461, 0, 6, 196462, 0, 1, 196463, 0, 5, 196464, 0, 196609, 196465, 0, 196610, 196561, 0, 65539, 196566, 0, 196608, 196567, 0, 196610, 196590, 0, 131076, 196591, 0, 2, 131086, 0, 65536, 131087, 0, 65538, 261997, 0, 131072, 261998, 0, 131073, 261999, 0, 131074, 262097, 0, 131075, 262108, 0, 196608, 262109, 0, 196610, 262115, 0, 196611, 262121, 0, 4, 262122, 0, 196609, 262123, 0, 196610, 262126, 0, 65540, 262127, 0, 131074, 262135, 0, 196608, 262136, 0, 196610, 262141, 0, 196608, 262142, 0, 196609, 262143, 0, 196610, 196622, 0, 65536, 196623, 0, 65538, 327657, 0, 65539, 327661, 0, 4, 327662, 0, 196615, 262158, 0, 65536, 262159, 0, 65538, 393170, 0, 196608, 393171, 0, 6, 393172, 0, 1, 393173, 0, 1, 393174, 0, 1, 393175, 0, 1, 393176, 0, 5, 393177, 0, 196609, 393178, 0, 196610, 393193, 0, 65539, 393197, 0, 131075, 327694, 0, 65536, 327695, 0, 65538, 458707, 0, 131072, 458708, 0, 131073, 458709, 0, 131073, 458710, 0, 131073, 458711, 0, 131073, 458712, 0, 131074, 458729, 0, 65539, 458751, 0, 3, 393217, 0, 196608, 393218, 0, 196610, 393230, 0, 65536, 393231, 0, 65538, 524265, 0, 131075, 524287, 0, 65539, 458766, 0, 131072, 458767, 0, 131074, 589804, 0, 196608, 589805, 0, 6, 589806, 0, 1, 589807, 0, 1, 589808, 0, 1, 589809, 0, 1, 589810, 0, 2, 589823, 0, 131075, 655341, 0, 131072, 655342, 0, 131073, 655343, 0, 131073, 655344, 0, 131073, 655345, 0, 131073, 655346, 0, 131074, 655361, 0, 196608, 655362, 0, 196609, 655363, 0, 6, 655364, 0, 1, 655365, 0, 1, 655366, 0, 1, 655367, 0, 1, 655368, 0, 1, 655369, 0, 1, 655370, 0, 1, 655371, 0, 1, 655372, 0, 1, 655373, 0, 1, 655374, 0, 1, 655375, 0, 2, 720899, 0, 131072, 720900, 0, 131073, 720901, 0, 131073, 720902, 0, 131073, 720903, 0, 131073, 720904, 0, 131073, 720905, 0, 131073, 720906, 0, 131073, 720907, 0, 131073, 720908, 0, 131073, 720909, 0, 131073, 720910, 0, 131073, 720911, 0, 131074 )
+
+[node name="Door" parent="." index="4" instance=ExtResource( 2 )]
+position = Vector2( 248, 144 )
+connection = ExtResource( 4 )
+new_map_path = "res://Maps/LeftBranch.tscn"
+
+[node name="Drone" parent="." index="5" instance=ExtResource( 5 )]
+position = Vector2( 128, 128 )
+
+[node name="Spikes" type="Node2D" parent="." index="6"]
+
+[node name="Spike" parent="Spikes" index="0" instance=ExtResource( 6 )]
+position = Vector2( -220, 128 )
+
+[node name="Spike3" parent="Spikes" index="1" instance=ExtResource( 6 )]
+position = Vector2( -556, 48 )
+
+[node name="Spike4" parent="Spikes" index="2" instance=ExtResource( 6 )]
+position = Vector2( -660, 32 )
+
+[node name="Spike7" parent="Spikes" index="3" instance=ExtResource( 6 )]
+position = Vector2( -932, -48 )
+
+[node name="Spike8" parent="Spikes" index="4" instance=ExtResource( 6 )]
+position = Vector2( -1196, -192 )
+
+[node name="Spike5" parent="Spikes" index="5" instance=ExtResource( 6 )]
+position = Vector2( -700, -96 )
+scale = Vector2( 1, -1 )
+
+[node name="Spike6" parent="Spikes" index="6" instance=ExtResource( 6 )]
+position = Vector2( -724, -96 )
+scale = Vector2( 1, -1 )
+
+[node name="Spike2" parent="Spikes" index="7" instance=ExtResource( 6 )]
+position = Vector2( -316, 0 )
+scale = Vector2( 1, -1 )
+
+[node name="Platforms" type="Node2D" parent="." index="7"]
+
+[node name="MovingPlatform" parent="Platforms" index="0" instance=ExtResource( 8 )]
+position = Vector2( -1032, -71 )
+
+[node name="MovingPlatform2" parent="Platforms" index="1" instance=ExtResource( 8 )]
+position = Vector2( -1091, -72 )
+scale = Vector2( -1, 1 )
+
+[node name="MovingPlatform3" parent="Platforms" index="2" instance=ExtResource( 8 )]
+position = Vector2( -1403, -184 )
+scale = Vector2( -1, 1 )
+
+[node name="Guards" type="Node2D" parent="." index="8"]
+
+[node name="Guard" parent="Guards" index="0" instance=ExtResource( 9 )]
+position = Vector2( -1804, -240 )
+
+[node name="Guard2" parent="Guards" index="1" instance=ExtResource( 9 )]
+position = Vector2( -1892, -240 )
+scale = Vector2( -1, 1 )
+
+[node name="HeadPart" parent="." index="9" instance=ExtResource( 7 )]
+position = Vector2( -2296, -37 )
+
+[node name="Audio" parent="." index="10"]
+stream = ExtResource( 10 )
+autoplay = true

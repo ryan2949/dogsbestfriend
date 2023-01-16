@@ -1,0 +1,78 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Tiles/bricks/BrickTiles.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Maps/Map.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Maps/Door.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Connections/LeftBranch_Garage_0.tres" type="Resource" id=4]
+[ext_resource path="res://UI/ButtonsTheme.tres" type="Theme" id=5]
+[ext_resource path="res://Connections/LeftBranch_Caverns_0.tres" type="Resource" id=6]
+[ext_resource path="res://Connections/Mountains_LeftBranch_0.tres" type="Resource" id=7]
+[ext_resource path="res://Connections/Scrapyard_LeftBranch_0.tres" type="Resource" id=8]
+
+[node name="LeftBranch" instance=ExtResource( 2 )]
+pause_timer = true
+
+[node name="TopLeft" parent="." index="0"]
+position = Vector2( -32, -48 )
+
+[node name="BottomRight" parent="." index="1"]
+position = Vector2( 240, 256 )
+
+[node name="DefaultPlayerPosition" parent="." index="2"]
+position = Vector2( 209, 121 )
+
+[node name="BrickTiles" parent="." index="3" instance=ExtResource( 1 )]
+tile_data = PoolIntArray( -131074, 0, 0, -131073, 0, 1, -196608, 0, 1, -196607, 0, 1, -196606, 0, 5, -196605, 0, 196609, -196604, 0, 196609, -196603, 0, 196609, -196602, 0, 196609, -196601, 0, 7, -196598, 0, 0, -196597, 0, 1, -196596, 0, 1, -196595, 0, 1, -196594, 0, 1, -196593, 0, 2, -65538, 0, 65536, -65537, 0, 65537, -131072, 0, 65537, -131071, 0, 65537, -131070, 0, 65538, -131065, 0, 65539, -131062, 0, 131072, -131061, 0, 131073, -131060, 0, 131073, -131059, 0, 131073, -131058, 0, 65542, -131057, 0, 65538, -2, 0, 65536, -1, 0, 65537, -65536, 0, 65537, -65535, 0, 65537, -65534, 0, 65538, -65529, 0, 65539, -65522, 0, 65536, -65521, 0, 65538, 65534, 0, 65536, 65535, 0, 65537, 0, 0, 65537, 1, 0, 65537, 2, 0, 131077, 3, 0, 1, 4, 0, 1, 5, 0, 1, 6, 0, 1, 7, 0, 131080, 8, 0, 1, 9, 0, 2, 14, 0, 65536, 15, 0, 65538, 131070, 0, 65536, 131071, 0, 65537, 65536, 0, 65537, 65537, 0, 65537, 65538, 0, 65537, 65539, 0, 65537, 65540, 0, 65537, 65541, 0, 65537, 65542, 0, 65541, 65543, 0, 131073, 65544, 0, 131073, 65545, 0, 196613, 65546, 0, 196609, 65547, 0, 196610, 65550, 0, 65536, 65551, 0, 65538, 196606, 0, 65536, 196607, 0, 65537, 131072, 0, 65537, 131073, 0, 65537, 131074, 0, 65537, 131075, 0, 65537, 131076, 0, 65537, 131077, 0, 65537, 131078, 0, 65538, 131086, 0, 65536, 131087, 0, 65538, 262142, 0, 65540, 262143, 0, 131073, 196608, 0, 131073, 196609, 0, 131073, 196610, 0, 131073, 196611, 0, 65542, 196612, 0, 65537, 196613, 0, 65537, 196614, 0, 65538, 196622, 0, 65536, 196623, 0, 65538, 327678, 0, 65539, 262147, 0, 65536, 262148, 0, 65537, 262149, 0, 65537, 262150, 0, 65538, 262155, 0, 0, 262156, 0, 1, 262157, 0, 1, 262158, 0, 65545, 262159, 0, 131074, 393214, 0, 65539, 327683, 0, 65536, 327684, 0, 65541, 327685, 0, 131073, 327686, 0, 196613, 327687, 0, 196609, 327688, 0, 196610, 327691, 0, 131072, 327692, 0, 131073, 327693, 0, 131073, 327694, 0, 131074, 458750, 0, 196612, 458751, 0, 196609, 393216, 0, 196609, 393217, 0, 196609, 393218, 0, 196609, 393219, 0, 196614, 393220, 0, 131074, 524299, 0, 0, 524300, 0, 1, 524301, 0, 1, 524302, 0, 2, 655358, 0, 0, 655359, 0, 1, 589824, 0, 1, 589825, 0, 1, 589826, 0, 1, 589827, 0, 5, 589828, 0, 196609, 589829, 0, 196610, 589832, 0, 0, 589833, 0, 1, 589834, 0, 1, 589835, 0, 131078, 589836, 0, 65537, 589837, 0, 65537, 589838, 0, 65538, 720894, 0, 65536, 720895, 0, 65537, 655360, 0, 65537, 655361, 0, 65541, 655362, 0, 131073, 655363, 0, 131074, 655368, 0, 65536, 655369, 0, 65537, 655370, 0, 65537, 655371, 0, 65537, 655372, 0, 65537, 655373, 0, 65537, 655374, 0, 65538, 786430, 0, 65536, 786431, 0, 65537, 720896, 0, 65541, 720897, 0, 131074, 720904, 0, 65536, 720905, 0, 65537, 720906, 0, 65537, 720907, 0, 65537, 720908, 0, 65537, 720909, 0, 65537, 720910, 0, 65538, 851966, 0, 65536, 851967, 0, 65537, 786432, 0, 65538, 786439, 0, 4, 786440, 0, 196614, 786441, 0, 131073, 786442, 0, 131073, 786443, 0, 65542, 786444, 0, 65537, 786445, 0, 65537, 786446, 0, 65538, 917502, 0, 65536, 917503, 0, 65537, 851968, 0, 65538, 851974, 0, 0, 851975, 0, 131079, 851979, 0, 65536, 851980, 0, 65537, 851981, 0, 65537, 851982, 0, 65538, 983038, 0, 65536, 983039, 0, 65537, 917504, 0, 131077, 917505, 0, 2, 917510, 0, 65536, 917511, 0, 65538, 917515, 0, 65536, 917516, 0, 65537, 917517, 0, 65537, 917518, 0, 65538, 1048574, 0, 131072, 1048575, 0, 131073, 983040, 0, 131073, 983041, 0, 196613, 983042, 0, 196609, 983043, 0, 196610, 983046, 0, 131072, 983047, 0, 196613, 983048, 0, 196609, 983049, 0, 196609, 983050, 0, 196609, 983051, 0, 196614, 983052, 0, 131073, 983053, 0, 131073, 983054, 0, 131074 )
+
+[node name="Door" parent="." index="4" instance=ExtResource( 3 )]
+position = Vector2( 232, 112 )
+connection = ExtResource( 4 )
+new_map_path = "res://Maps/Garage/Garage.tscn"
+
+[node name="Level6" type="Label" parent="." index="5"]
+margin_left = -13.0
+margin_top = 69.0
+margin_right = 41.0
+margin_bottom = 90.0
+theme = ExtResource( 5 )
+custom_colors/font_color = Color( 0.0196078, 0.121569, 0.223529, 1 )
+text = " Level 6
+Scrapyard"
+
+[node name="Level2" type="Label" parent="." index="6"]
+margin_left = 54.0
+margin_top = -26.0
+margin_right = 108.0
+margin_bottom = -5.0
+theme = ExtResource( 5 )
+custom_colors/font_color = Color( 0.0196078, 0.121569, 0.223529, 1 )
+text = " Level 2
+Mountains"
+
+[node name="Level3" type="Label" parent="." index="7"]
+margin_left = 131.0
+margin_top = 216.0
+margin_right = 175.0
+margin_bottom = 237.0
+theme = ExtResource( 5 )
+custom_colors/font_color = Color( 0.0196078, 0.121569, 0.223529, 1 )
+text = "Level 4
+Caverns"
+
+[node name="Door2" parent="." index="8" instance=ExtResource( 3 )]
+position = Vector2( 80, 248 )
+rotation = 1.5708
+connection = ExtResource( 6 )
+new_map_path = "res://Maps/Caverns.tscn"
+
+[node name="Door3" parent="." index="9" instance=ExtResource( 3 )]
+position = Vector2( 144, -40 )
+rotation = -1.5708
+connection = ExtResource( 7 )
+new_map_path = "res://Maps/Mountains.tscn"
+
+[node name="Door4" parent="." index="10" instance=ExtResource( 3 )]
+position = Vector2( -24, 128 )
+scale = Vector2( -1, 1 )
+connection = ExtResource( 8 )
+new_map_path = "res://Maps/Scrapyard.tscn"
