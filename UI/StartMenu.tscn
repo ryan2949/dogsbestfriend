@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://UI/ButtonsTheme.tres" type="Theme" id=1]
+[ext_resource path="res://StartMenu.gd" type="Script" id=2]
+[ext_resource path="res://Music/xDeviruchi - Title Theme .ogg" type="AudioStream" id=3]
+[ext_resource path="res://UI/Title.png" type="Texture" id=4]
+
+[node name="StartMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 240.0
+margin_bottom = 160.0
+texture = ExtResource( 4 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 21.0
+margin_top = 126.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+margin_left = 38.0
+margin_top = 6.0
+margin_right = 180.0
+margin_bottom = 27.0
+
+[node name="StartButton" type="Button" parent="CenterContainer/HBoxContainer"]
+margin_right = 78.0
+margin_bottom = 21.0
+text = "Start Game!"
+icon_align = 1
+
+[node name="SettingsButton" type="Button" parent="CenterContainer/HBoxContainer"]
+margin_left = 82.0
+margin_right = 142.0
+margin_bottom = 21.0
+text = "Settings"
+icon_align = 1
+
+[node name="StartLabel" type="Label" parent="."]
+margin_left = 68.0
+margin_top = 120.0
+margin_right = 108.0
+margin_bottom = 129.0
+custom_colors/font_color = Color( 1, 0.556863, 0.501961, 1 )
+text = "Enter"
+align = 1
+
+[node name="SettingsLabel" type="Label" parent="."]
+margin_left = 152.0
+margin_top = 120.0
+margin_right = 192.0
+margin_bottom = 129.0
+custom_colors/font_color = Color( 1, 0.556863, 0.501961, 1 )
+text = "Escape"
+align = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
+
+[connection signal="pressed" from="CenterContainer/HBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/SettingsButton" to="." method="_on_SettingsButton_pressed"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]

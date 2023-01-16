@@ -1,0 +1,8 @@
+[gd_resource type="DynamicFont" load_steps=2 format=2]
+
+[ext_resource path="res://UI/ResoledBold.ttf" type="DynamicFontData" id=1]
+
+[resource]
+size = 9
+outline_color = Color( 0.772549, 0.227451, 0.615686, 1 )
+font_data = ExtResource( 1 )

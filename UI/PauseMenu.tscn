@@ -1,0 +1,114 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://UI/PartsUI.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/ButtonsTheme.tres" type="Theme" id=2]
+[ext_resource path="res://UI/PauseMenu.gd" type="Script" id=3]
+[ext_resource path="res://UI/DifficultyButtons.tres" type="ButtonGroup" id=4]
+
+[node name="PauseMenu" type="ColorRect"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+color = Color( 0.0196078, 0.121569, 0.223529, 1 )
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -110.0
+margin_top = -70.0
+margin_right = 110.0
+margin_bottom = 70.0
+mouse_filter = 1
+color = Color( 0.772549, 0.227451, 0.615686, 1 )
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 54.0
+margin_top = 50.0
+margin_right = 198.0
+margin_bottom = 64.0
+theme = ExtResource( 2 )
+custom_colors/font_color = Color( 0.0196078, 0.121569, 0.223529, 1 )
+text = "press escape to resume"
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+theme = ExtResource( 2 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+pause_mode = 2
+margin_left = 62.0
+margin_top = 37.0
+margin_right = 178.0
+margin_bottom = 122.0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 116.0
+margin_bottom = 9.0
+custom_colors/font_color = Color( 0.0196078, 0.121569, 0.223529, 1 )
+text = "Game Paused"
+align = 1
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 13.0
+margin_right = 116.0
+margin_bottom = 22.0
+
+[node name="ResumeButton" type="Button" parent="CenterContainer/VBoxContainer"]
+pause_mode = 2
+margin_top = 26.0
+margin_right = 116.0
+margin_bottom = 47.0
+text = "Resume"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+pause_mode = 2
+margin_top = 51.0
+margin_right = 116.0
+margin_bottom = 72.0
+
+[node name="SlowButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+pause_mode = 2
+margin_right = 36.0
+margin_bottom = 21.0
+group = ExtResource( 4 )
+text = "Slow"
+
+[node name="MildButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+pause_mode = 2
+margin_left = 40.0
+margin_right = 76.0
+margin_bottom = 21.0
+group = ExtResource( 4 )
+text = "Mild"
+
+[node name="FastButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+pause_mode = 2
+margin_left = 80.0
+margin_right = 116.0
+margin_bottom = 21.0
+group = ExtResource( 4 )
+text = "Fast"
+
+[node name="WeatherLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 76.0
+margin_right = 116.0
+margin_bottom = 85.0
+custom_colors/font_color = Color( 0.0196078, 0.121569, 0.223529, 1 )
+text = "Weather Speed"
+align = 1
+
+[node name="PartsUI" parent="." instance=ExtResource( 1 )]
+mouse_filter = 2
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ResumeButton" to="." method="_on_ResumeButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/SlowButton" to="." method="_on_SlowButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/MildButton" to="." method="_on_MildButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/FastButton" to="." method="_on_FastButton_pressed"]

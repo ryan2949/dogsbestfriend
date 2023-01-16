@@ -1,0 +1,91 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UI/ButtonsTheme.tres" type="Theme" id=1]
+[ext_resource path="res://UI/SplashScreen.gd" type="Script" id=2]
+
+[node name="SplashScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0196078, 0.121569, 0.223529, 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBox1" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 54.0
+margin_top = 69.0
+margin_right = 186.0
+margin_bottom = 91.0
+
+[node name="Label" type="Label" parent="CenterContainer/VBox1"]
+margin_right = 132.0
+margin_bottom = 9.0
+custom_colors/font_color = Color( 1, 0.556863, 0.501961, 1 )
+text = "For GodotWild Jam #53!"
+
+[node name="Label2" type="Label" parent="CenterContainer/VBox1"]
+margin_top = 13.0
+margin_right = 132.0
+margin_bottom = 22.0
+custom_colors/font_color = Color( 1, 0.556863, 0.501961, 1 )
+text = "Made in 48 Hours..."
+align = 1
+
+[node name="VBox2" type="VBoxContainer" parent="CenterContainer"]
+visible = false
+margin_left = 60.0
+margin_top = 49.0
+margin_right = 180.0
+margin_bottom = 110.0
+
+[node name="Label" type="Label" parent="CenterContainer/VBox2"]
+margin_right = 120.0
+margin_bottom = 9.0
+custom_colors/font_color = Color( 1, 0.556863, 0.501961, 1 )
+text = "Wild Cards Used:"
+align = 1
+
+[node name="Label2" type="Label" parent="CenterContainer/VBox2"]
+margin_top = 13.0
+margin_right = 120.0
+margin_bottom = 22.0
+custom_colors/font_color = Color( 1, 0.556863, 0.501961, 1 )
+text = "----------------"
+align = 1
+
+[node name="Label4" type="Label" parent="CenterContainer/VBox2"]
+margin_top = 26.0
+margin_right = 120.0
+margin_bottom = 35.0
+custom_colors/font_color = Color( 1, 0.556863, 0.501961, 1 )
+text = "Four Color Limit"
+align = 1
+
+[node name="Label3" type="Label" parent="CenterContainer/VBox2"]
+margin_top = 39.0
+margin_right = 120.0
+margin_bottom = 48.0
+custom_colors/font_color = Color( 1, 0.556863, 0.501961, 1 )
+text = "Temperature Mechanic"
+align = 1
+
+[node name="Label5" type="Label" parent="CenterContainer/VBox2"]
+margin_top = 52.0
+margin_right = 120.0
+margin_bottom = 61.0
+custom_colors/font_color = Color( 1, 0.556863, 0.501961, 1 )
+text = "Plot Twist (kind of)"
+align = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

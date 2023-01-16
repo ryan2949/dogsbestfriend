@@ -1,0 +1,96 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://UI/ButtonsTheme.tres" type="Theme" id=1]
+[ext_resource path="res://UI/DifficultyButtons.tres" type="ButtonGroup" id=2]
+[ext_resource path="res://UI/SettingsMenu.gd" type="Script" id=3]
+
+[node name="SettingsMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+color = Color( 0.0196078, 0.121569, 0.223529, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -110.0
+margin_top = -70.0
+margin_right = 110.0
+margin_bottom = 70.0
+mouse_filter = 1
+color = Color( 0.772549, 0.227451, 0.615686, 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 21.0
+margin_top = 57.0
+margin_right = 219.0
+margin_bottom = 103.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_right = 198.0
+margin_bottom = 21.0
+
+[node name="SlowButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_right = 36.0
+margin_bottom = 21.0
+toggle_mode = true
+group = ExtResource( 2 )
+text = "Slow"
+
+[node name="MildButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 40.0
+margin_right = 76.0
+margin_bottom = 21.0
+toggle_mode = true
+group = ExtResource( 2 )
+text = "Mild"
+
+[node name="FastButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 80.0
+margin_right = 116.0
+margin_bottom = 21.0
+toggle_mode = true
+group = ExtResource( 2 )
+text = "Fast"
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 120.0
+margin_top = 6.0
+margin_right = 198.0
+margin_bottom = 15.0
+custom_colors/font_color = Color( 1, 0.556863, 0.501961, 1 )
+text = "Weather Speed"
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 25.0
+margin_right = 198.0
+margin_bottom = 46.0
+text = "Back to Title"
+
+[node name="KeysLabel" type="Label" parent="."]
+margin_left = 75.0
+margin_top = 106.0
+margin_right = 165.0
+margin_bottom = 115.0
+custom_colors/font_color = Color( 0.0196078, 0.121569, 0.223529, 1 )
+text = "Enter or Escape"
+align = 1
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/SlowButton" to="." method="_on_SlowButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/MildButton" to="." method="_on_MildButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/FastButton" to="." method="_on_FastButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
